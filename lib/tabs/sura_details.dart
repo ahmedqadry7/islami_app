@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:session_8_flutter4/models/sura_model.dart';
 
 class SuraDetails extends StatefulWidget {
@@ -33,14 +32,9 @@ class _SuraDetailsState extends State<SuraDetails> {
             fit: BoxFit.cover),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          centerTitle: true,
           title: Text(
             suraModel.suraName,
-            style: GoogleFonts.elMessiri(
-                fontSize: 30, fontWeight: FontWeight.bold),
           ),
         ),
         body: verses.isEmpty
@@ -67,8 +61,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                       "${verses[index]}(${index + 1})",
                       textDirection: TextDirection.rtl,
                       textAlign: TextAlign.center,
-                      style:
-                          GoogleFonts.elMessiri(fontSize: 18),
+                      style: Theme.of(context).textTheme.bodyMedium
                     );
                   },
                   itemCount: verses.length,
