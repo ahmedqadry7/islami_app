@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:session_8_flutter4/tabs/ahadeeth_tab.dart';
 import 'package:session_8_flutter4/tabs/quran_tab.dart';
 import 'package:session_8_flutter4/tabs/radio_tab.dart';
 import 'package:session_8_flutter4/tabs/sebha_tab.dart';
+import 'package:session_8_flutter4/tabs/settings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends StatefulWidget {
   static const String routeName = "homePage";
@@ -26,29 +27,18 @@ class _HomePageState extends State<HomePage> {
             fit: BoxFit.cover),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          centerTitle: true,
           title: Text(
-            "إسلامي",
-            style: GoogleFonts.elMessiri(
-                fontSize: 30, fontWeight: FontWeight.bold),
+            AppLocalizations.of(context)!.app_name
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Color(0xFFB7935F),
-          type: BottomNavigationBarType.fixed,
-          showSelectedLabels: true,
-          showUnselectedLabels: false,
           currentIndex: index,
-          iconSize: 35,
           onTap: (value) {
             index = value;
             setState(() {});
           },
-          unselectedItemColor: Colors.white,
-          selectedItemColor: Colors.black,
+          iconSize: 35,
           items: [
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/images/ic_radio.png")),
@@ -62,6 +52,12 @@ class _HomePageState extends State<HomePage> {
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/images/ic_quran.png")),
                 label: "القرآن"),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.settings,
+                  size: 30,
+                ),
+                label: "settings")
           ],
         ),
         body: tabs[index],
@@ -69,5 +65,11 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  List<Widget> tabs = [RadioTab(), SebhaTab(), AhadeethTab(), QuranTab()];
+  List<Widget> tabs = [
+    RadioTab(),
+    SebhaTab(),
+    AhadeethTab(),
+    QuranTab(),
+    SettingsTab()
+  ];
 }

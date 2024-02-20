@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:session_8_flutter4/tabs/hadeeth_details.dart';
 import 'package:session_8_flutter4/models/hadeethModel.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AhadeethTab extends StatefulWidget {
   AhadeethTab({super.key});
@@ -29,7 +30,7 @@ class _AhadeethTabState extends State<AhadeethTab> {
           Image.asset("assets/images/ahadeeth_header.png"),
           Divider(color: Color(0xFFB7935F), thickness: 3),
           Text(
-            "الأحاديث",
+            AppLocalizations.of(context)!.ahadeth,
             style: GoogleFonts.elMessiri(
                 fontWeight: FontWeight.w600, fontSize: 25),
           ),
