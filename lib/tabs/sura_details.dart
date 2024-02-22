@@ -2,7 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:session_8_flutter4/models/sura_model.dart';
+import 'package:session_8_flutter4/my_theme.dart';
+import 'package:session_8_flutter4/providers/my_provider.dart';
 
 class SuraDetails extends StatefulWidget {
   static const routeName = "suraDetials";
@@ -18,6 +22,7 @@ class _SuraDetailsState extends State<SuraDetails> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     var suraModel = ModalRoute.of(context)!.settings.arguments as SuraModel;
     if (verses.isEmpty) {
       Future.delayed(Duration(), () {
@@ -28,7 +33,7 @@ class _SuraDetailsState extends State<SuraDetails> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("assets/images/bachground.png"),
+            image: AssetImage(provider.getBackgroundPath()),
             fit: BoxFit.cover),
       ),
       child: Scaffold(
@@ -51,17 +56,20 @@ class _SuraDetailsState extends State<SuraDetails> {
                   separatorBuilder: (context, index) {
                     return Divider(
                       thickness: 1,
-                      color: Color(0xFFB7935F),
+                      color: provider.themeMode == ThemeMode.light ? MyThemeData.primaryColor : MyThemeData.yellowColor,
                       indent: 40,
                       endIndent: 40,
                     );
                   },
+                  
                   itemBuilder: (context, index) {
                     return Text(
                       "${verses[index]}(${index + 1})",
                       textDirection: TextDirection.rtl,
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.bodyMedium
+                      style: GoogleFonts.elMessiri(fontSize: 25,
+                      color: provider.themeMode == ThemeMode.light ? Colors.black : Color(0xFFFACC1D)),
+                      
                     );
                   },
                   itemCount: verses.length,

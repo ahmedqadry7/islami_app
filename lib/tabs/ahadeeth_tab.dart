@@ -3,12 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:session_8_flutter4/providers/my_provider.dart';
 import 'package:session_8_flutter4/tabs/hadeeth_details.dart';
 import 'package:session_8_flutter4/models/hadeethModel.dart';
+import 'package:session_8_flutter4/my_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AhadeethTab extends StatefulWidget {
-  AhadeethTab({super.key});
+  const AhadeethTab({super.key});
 
   @override
   State<AhadeethTab> createState() => _AhadeethTabState();
@@ -19,6 +22,7 @@ class _AhadeethTabState extends State<AhadeethTab> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     if(ahadeethData.isEmpty){
       readHadeethFile();
     }
@@ -28,19 +32,19 @@ class _AhadeethTabState extends State<AhadeethTab> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset("assets/images/ahadeeth_header.png"),
-          Divider(color: Color(0xFFB7935F), thickness: 3),
+          Divider(color: provider.themeMode == ThemeMode.light ? MyThemeData.primaryColor : MyThemeData.yellowColor, thickness: 3),
           Text(
             AppLocalizations.of(context)!.ahadeth,
             style: GoogleFonts.elMessiri(
                 fontWeight: FontWeight.w600, fontSize: 25),
           ),
-          Divider(color: Color(0xFFB7935F), thickness: 3),
+          Divider(color: provider.themeMode == ThemeMode.light ? MyThemeData.primaryColor : MyThemeData.yellowColor, thickness: 3),
           //List Viewwwwwwwwwwwww
           Expanded(
             child: ListView.separated(
               separatorBuilder: (context, index) => Divider(
               thickness: 1,
-              color: Color(0xFFB7935F),
+              color: provider.themeMode == ThemeMode.light ? MyThemeData.primaryColor : MyThemeData.yellowColor,
               endIndent: 40,
               indent: 40,
               height: 35,

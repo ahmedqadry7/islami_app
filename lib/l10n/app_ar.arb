@@ -1,5 +1,13 @@
 {
     "app_name": "إسلامي",
     "SuraName": "اسم السورة",
-    "ahadeth":"الأحاديث"
+    "ahadeth": "الأحاديث",
+    "language": "اللغة",
+    "theme": "الثمة",
+    "radio": "الراديو",
+    "tasbeeh": "التسبيح",
+    "quran": "القرآن",
+    "settings": "الإعدادات",
+    "numberOfVerses":"عدد الآيات",
+    "nameOfSura": "اسم السورة"
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:session_8_flutter4/providers/my_provider.dart';
 import 'package:session_8_flutter4/tabs/ahadeeth_tab.dart';
 import 'package:session_8_flutter4/tabs/quran_tab.dart';
 import 'package:session_8_flutter4/tabs/radio_tab.dart';
@@ -20,10 +22,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("assets/images/bachground.png"),
+            image: AssetImage(provider.getBackgroundPath()),
             fit: BoxFit.cover),
       ),
       child: Scaffold(
@@ -42,22 +45,22 @@ class _HomePageState extends State<HomePage> {
           items: [
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/images/ic_radio.png")),
-                label: "الراديو"),
+                label: AppLocalizations.of(context)!.radio),
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/images/ic_sebha.png")),
-                label: "التسبيح"),
+                label: AppLocalizations.of(context)!.tasbeeh),
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/images/ic_ahadeeth.png")),
-                label: "الأحاديث"),
+                label: AppLocalizations.of(context)!.ahadeth),
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/images/ic_quran.png")),
-                label: "القرآن"),
+                label: AppLocalizations.of(context)!.quran),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.settings,
                   size: 30,
                 ),
-                label: "settings")
+                label: AppLocalizations.of(context)!.settings)
           ],
         ),
         body: tabs[index],
