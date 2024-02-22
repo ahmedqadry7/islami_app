@@ -255,7 +255,7 @@ class QuranTab extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "عدد الآيات",
+                  AppLocalizations.of(context)!.numberOfVerses,
                   style: GoogleFonts.elMessiri(
                       fontSize: 25, fontWeight: FontWeight.bold),
                 ),
@@ -263,7 +263,7 @@ class QuranTab extends StatelessWidget {
                   thickness: 3,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.suraName,
+                  AppLocalizations.of(context)!.nameOfSura,
                   style: GoogleFonts.elMessiri(
                       fontSize: 25, fontWeight: FontWeight.bold),
                 ),
