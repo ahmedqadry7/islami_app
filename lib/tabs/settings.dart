@@ -41,7 +41,7 @@ class SettingsTab extends StatelessWidget {
               padding: EdgeInsets.all(12),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: MyThemeData.primaryColor),
+                border: Border.all(color: provider.themeMode == ThemeMode.light ? MyThemeData.primaryColor : MyThemeData.yellowColor),
               ),
               child: Text(
                 provider.languageCode == "en" ? "English" : "العربية",
@@ -75,10 +75,10 @@ class SettingsTab extends StatelessWidget {
               padding: EdgeInsets.all(12),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: MyThemeData.primaryColor),
+                border: Border.all(color:  provider.themeMode == ThemeMode.light ? MyThemeData.primaryColor : MyThemeData.yellowColor),
               ),
               child: Text(
-                "Light",
+                provider.themeMode == ThemeMode.dark ? "Dark" : "Light",
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),

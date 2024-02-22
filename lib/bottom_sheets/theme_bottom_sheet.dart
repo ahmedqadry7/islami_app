@@ -49,11 +49,11 @@ class ThemeBottomSheet extends StatelessWidget {
                   style: GoogleFonts.elMessiri(
                       fontSize: 30,
                       color: provider.themeMode == ThemeMode.dark
-                          ? MyThemeData.primaryColor
+                          ? MyThemeData.yellowColor
                           : MyThemeData.blackColor),
                 ),
                 if (provider.themeMode == ThemeMode.dark) ...[
-                  Icon(Icons.done, size: 35, color: MyThemeData.primaryColor),
+                  Icon(Icons.done, size: 35, color: MyThemeData.yellowColor),
                 ]
               ],
             ),

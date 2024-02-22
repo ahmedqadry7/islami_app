@@ -14,7 +14,6 @@ class LanguageBottomSheet extends StatefulWidget {
 }
 
 class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
-
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<MyProvider>(context);
@@ -29,17 +28,32 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "English",
-                  style: GoogleFonts.elMessiri(
+                if (provider.languageCode == "en")...[
+                  Text(
+                    "English",
+                    style: GoogleFonts.elMessiri(
                       fontSize: 30,
-                      color: provider.languageCode == "en"
-                          ? MyThemeData.primaryColor
-                          : MyThemeData.blackColor),
-                ),
-                if (provider.languageCode == "en") ...[
-                  Icon(Icons.done, size: 35, color: MyThemeData.primaryColor),
+                      color: provider.themeMode == ThemeMode.dark
+                          ? MyThemeData.yellowColor
+                          : MyThemeData.primaryColor,
+                    ),
+                  ),
+                  Icon(
+                    Icons.done,
+                    size: 35,
+                    color: provider.themeMode == ThemeMode.dark
+                        ? MyThemeData.yellowColor
+                        : MyThemeData.primaryColor,
+                  )
                 ]
+                else
+                  Text(
+                    "English",
+                    style: GoogleFonts.elMessiri(
+                      fontSize: 30,
+                      color: MyThemeData.blackColor
+                    ),
+                  ),
               ],
             ),
           ),
@@ -50,17 +64,32 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "Arabic",
-                  style: GoogleFonts.elMessiri(
+                if (provider.languageCode == "ar")...[
+                  Text(
+                    "Arabic",
+                    style: GoogleFonts.elMessiri(
                       fontSize: 30,
-                      color: provider.languageCode == "ar"
-                          ? MyThemeData.primaryColor
-                          : MyThemeData.blackColor),
-                ),
-                if (provider.languageCode == "ar") ...[
-                  Icon(Icons.done, size: 35, color: MyThemeData.primaryColor),
+                      color: provider.themeMode == ThemeMode.dark
+                          ? MyThemeData.yellowColor
+                          : MyThemeData.primaryColor,
+                    ),
+                  ),
+                  Icon(
+                    Icons.done,
+                    size: 35,
+                    color: provider.themeMode == ThemeMode.dark
+                        ? MyThemeData.yellowColor
+                        : MyThemeData.primaryColor,
+                  )
                 ]
+                else
+                  Text(
+                    "Arabic",
+                    style: GoogleFonts.elMessiri(
+                      fontSize: 30,
+                      color: MyThemeData.blackColor
+                    ),
+                  ),
               ],
             ),
           )

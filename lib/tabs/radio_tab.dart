@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:session_8_flutter4/my_theme.dart';
+import 'package:session_8_flutter4/providers/my_provider.dart';
 
 class RadioTab extends StatelessWidget {
   const RadioTab({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Column(
       children: [
         SizedBox(height: 150),
@@ -45,7 +49,7 @@ class RadioTab extends StatelessWidget {
                 );
               },
               icon: Icon(Icons.skip_previous_sharp,
-                  size: 30, color: Color(0xFFB7935F)),
+                  size: 30, color: provider.themeMode == ThemeMode.light ? MyThemeData.primaryColor : MyThemeData.yellowColor,),
             ),
             IconButton(
               onPressed: () {
@@ -70,7 +74,7 @@ class RadioTab extends StatelessWidget {
                 );
               },
               icon: Icon(Icons.play_arrow_rounded,
-                  size: 50, color: Color(0xFFB7935F)),
+                  size: 50, color:provider.themeMode == ThemeMode.light ? MyThemeData.primaryColor : MyThemeData.yellowColor,),
             ),
             IconButton(
               onPressed: () {
@@ -95,7 +99,7 @@ class RadioTab extends StatelessWidget {
                 );
               },
               icon: Icon(Icons.skip_next_sharp,
-                  size: 30, color: Color(0xFFB7935F)),
+                  size: 30, color: provider.themeMode == ThemeMode.light ? MyThemeData.primaryColor : MyThemeData.yellowColor,),
             ),
           ],
         )

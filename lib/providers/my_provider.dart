@@ -19,7 +19,25 @@ class MyProvider extends ChangeNotifier {
       return "assets/images/bachground.png";
     }
     else{
-      return "assets/images/darkBackground.png";
+      return "assets/images/dark_background.png";
+    }
+  }
+
+  String getBodyOfSebhaPath(){
+    if(themeMode == ThemeMode.light){
+      return "assets/images/sebha_body.png";
+    }
+    else{
+      return "assets/images/bodyOfSeb7aDark.png";
+    }
+  }
+
+  String getHeadOfSebhaPath(){
+    if(themeMode == ThemeMode.light){
+      return "assets/images/sebha_head.png";
+    }
+    else{
+      return "assets/images/headOfSeb7aDark.png";
     }
   }
 }

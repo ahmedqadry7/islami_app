@@ -2,7 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:session_8_flutter4/models/sura_model.dart';
+import 'package:session_8_flutter4/my_theme.dart';
+import 'package:session_8_flutter4/providers/my_provider.dart';
 import 'package:session_8_flutter4/tabs/sura_details.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -244,11 +247,12 @@ class QuranTab extends StatelessWidget {
       
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Center(child: Image.asset("assets/images/quran_header.png")),
-        Divider(color: Color(0xFFB7935F), thickness: 3),
+        Divider(color: provider.themeMode == ThemeMode.light ? MyThemeData.primaryColor : MyThemeData.yellowColor, thickness: 3),
         Column(
           children: [
             Row(
@@ -271,12 +275,12 @@ class QuranTab extends StatelessWidget {
             ),
           ],
         ),
-        Divider(color: Color(0xFFB7935F), thickness: 3),
+        Divider(color: provider.themeMode == ThemeMode.light ? MyThemeData.primaryColor : MyThemeData.yellowColor, thickness: 3),
         Expanded(
           child: ListView.separated(
             separatorBuilder: (context, index) => Divider(
               thickness: 1,
-              color: Color(0xFFB7935F),
+              color:  provider.themeMode == ThemeMode.light ? MyThemeData.primaryColor : MyThemeData.yellowColor,
               endIndent: 40,
               indent: 40,
               height: 35,
