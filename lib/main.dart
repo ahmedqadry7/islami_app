@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       locale: Locale(provider.languageCode),
       home: FlutterSplashScreen.fadeIn(
         backgroundImage: Image(
-          image: AssetImage("assets/images/splash_background.jpg"),
+          image: AssetImage("assets/images/splash_background.png"),
           alignment: Alignment.center,
         ),
         duration: Duration(seconds: 2),
@@ -40,7 +40,6 @@ class MyApp extends StatelessWidget {
           debugPrint("On End");
         },
         childWidget: SizedBox(),
-        onAnimationEnd: () => debugPrint("On Fade In End"),
         nextScreen: HomePage(),
       ),
       routes: {

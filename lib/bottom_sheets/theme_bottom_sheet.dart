@@ -29,7 +29,7 @@ class ThemeBottomSheet extends StatelessWidget {
                       fontSize: 30,
                       color: provider.themeMode == ThemeMode.light
                           ? MyThemeData.primaryColor
-                          : MyThemeData.blackColor),
+                          : Colors.white),
                 ),
                 if (provider.themeMode == ThemeMode.light) ...[
                   Icon(Icons.done, size: 35, color: MyThemeData.primaryColor),

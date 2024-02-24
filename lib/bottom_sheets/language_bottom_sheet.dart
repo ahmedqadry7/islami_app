@@ -51,7 +51,9 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
                     "English",
                     style: GoogleFonts.elMessiri(
                       fontSize: 30,
-                      color: MyThemeData.blackColor
+                      color: provider.themeMode == ThemeMode.dark
+                      ? Colors.white
+                      : MyThemeData.blackColor
                     ),
                   ),
               ],
@@ -87,7 +89,9 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
                     "Arabic",
                     style: GoogleFonts.elMessiri(
                       fontSize: 30,
-                      color: MyThemeData.blackColor
+                      color: provider.themeMode == ThemeMode.dark
+                      ? Colors.white
+                      : MyThemeData.blackColor
                     ),
                   ),
               ],
